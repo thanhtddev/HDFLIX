@@ -10,9 +10,22 @@
 		9E8F49F92E47960900636493 /* HDFLIX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDFLIX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9E7DB3662E5C3F8200AE2CC9 /* Exceptions for "HDFLIX" folder in "HDFLIX" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9E8F49F82E47960900636493 /* HDFLIX */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9E8F49FB2E47960900636493 /* HDFLIX */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9E7DB3662E5C3F8200AE2CC9 /* Exceptions for "HDFLIX" folder in "HDFLIX" target */,
+			);
 			path = HDFLIX;
 			sourceTree = "<group>";
 		};
@@ -254,6 +267,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HDFLIX/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDFLIX/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,6 +298,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HDFLIX/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDFLIX/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

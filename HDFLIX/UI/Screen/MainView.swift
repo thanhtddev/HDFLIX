@@ -15,17 +15,17 @@ struct MainView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            Text("Reel")
+            ReelView()
                 .tabItem {
                     Image(systemName: "film")
                     Text("Reel")
                 }
-            Text("My List")
+            ListView()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("My List")
                 }
-            Text("Settings")
+            SettingView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Setting")
