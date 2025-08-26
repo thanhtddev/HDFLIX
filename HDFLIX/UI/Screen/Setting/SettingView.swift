@@ -54,8 +54,8 @@ struct SettingView: View {
                                         .frame(width: 118, height: 40)
                                         .opacity(0.3)
                                     HStack{
-                                        Image("discord")
-                                        Text("Discord")
+                                        Image("tele")
+                                        Text("Telegram")
                                             .font(.custom("SF-Pro-Display-Medium", size: 15))
                                             .foregroundColor(.white)
                                     }
@@ -66,8 +66,8 @@ struct SettingView: View {
                                         .frame(width: 118, height: 40)
                                         .opacity(0.3)
                                     HStack{
-                                        Image("discord")
-                                        Text("Discord")
+                                        Image("channel")
+                                        Text("Channel")
                                             .font(.custom("SF-Pro-Display-Medium", size: 15))
                                             .foregroundColor(.white)
                                     }
