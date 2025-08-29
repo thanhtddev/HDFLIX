@@ -34,13 +34,12 @@ struct NetworkView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .padding()
                 }
                 HStack {
                     Text("Streamers")
                         .font(.SF_Pro_Bold(30))
                         .foregroundColor(.white)
-                        .padding()
+                        .padding(.leading)
                     Spacer()
                 }
                 ScrollView {

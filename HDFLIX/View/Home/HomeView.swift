@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    let movies: [Movie]
+    let actors: [Actor]
+    
     var body: some View {
         ZStack {
             BaseView()
@@ -20,12 +24,16 @@ struct HomeView: View {
                             .frame(width: 95, height: 30)
                             .padding()
                         Spacer()
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundColor(.white)
-                            .frame(width: 24, height: 24)
-                            .padding()
+                        Button{
+                            
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(.white)
+                                .frame(width: 24, height: 24)
+                                .padding()
+                        }
                     }
                     HStack{
                         Spacer()
@@ -62,181 +70,71 @@ struct HomeView: View {
                         .padding()
                         Spacer()
                     }
-                    ScrollView(.horizontal) {
-                        HStack {
-                            Image("banner1")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 255, height: 417)
-                                .cornerRadius(10)
-                                .padding()
-                            Image("banner2")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 255, height: 417)
-                                .cornerRadius(10)
-                                .padding()
-                            Image("banner3")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 255, height: 417)
-                                .cornerRadius(10)
-                                .padding()
-                        }
-                    }
-                    VStack {
-                        HStack {
-                            Image("forward")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 36, height: 36)
-                                .padding()
-                            Text("Continue Watching")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                    }
-                    VStack {
-                        HStack {
-                            Image("star")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 36, height: 36)
-                                .padding()
-                            Text("Suggest for you")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 20){
-                                MovieGridView(imageName: "banner4", title: "Grey's Anatomy", genre: "Crime, Drama")
-                                MovieGridView(imageName: "banner5", title: "Final Destination", genre: "Horror, Mystery")
-                                MovieGridView(imageName: "banner6", title: "How to train your dragon", genre: "Fantasy, Family")
-                            }
-                            
-                        }
-                    }
-                    VStack {
-                        Text("Explore By Network")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                        VStack{
-                            Spacer()
-                            HStack{
-                                Image("icon2")
-                                Image("icon3")
-                                Image("icon5")
-                                Image("icon2")
-                                Image("icon3")
-                            }
-                            HStack{
-                                Image("icon2")
-                                Image("icon3")
-                                Image("icon5")
-                                Image("icon2")
-                            }
-                            Spacer()
-                            HStack{
-                                VStack{
-                                    Text("THE BIG")
-                                        .font(.title3)
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    Text("Streamers")
-                                        .font(.system(size: 34))
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                .padding()
-                                Spacer()
-                                Image("isolation")
-
-                            }
-                            Spacer()
-                        }
-                        .frame(width: 400, height: 316)
-                        .background(
-                            LinearGradient(colors: [Color.lightred, Color.darkred] ,
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                            .cornerRadius(10)
-                        )
-                    }
-                    VStack{
-                        HStack{
-                            Image("xcheck")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 28, height: 28)
-                                .padding(.leading)
-                            Text("Popular Movies")
-                                .font(.system(size: 22))
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 20){
-                                MovieGridView(imageName: "banner4", title: "Grey's Anatomy", genre: "Crime, Drama")
-                                MovieGridView(imageName: "banner5", title: "Final Destination", genre: "Horror, Mystery")
-                                MovieGridView(imageName: "banner6", title: "How to train your dragon", genre: "Fantasy, Family")
-                            }
-                            
-                        }
-                    }
-                    VStack{
-                        HStack{
-                            Image("xcheck")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 28, height: 28)
-                                .padding(.leading)
-                            Text("Popular TV Shows")
-                                .font(.system(size: 22))
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 20){
-                                MovieGridView(imageName: "banner4", title: "Grey's Anatomy", genre: "Crime, Drama")
-                                MovieGridView(imageName: "banner5", title: "Final Destination", genre: "Horror, Mystery")
-                                MovieGridView(imageName: "banner6", title: "How to train your dragon", genre: "Fantasy, Family")
-                            }
-                            
-                        }
-                    }
-                    VStack{
-                        Text("Top Actors")
-                            .font(.system(size: 22))
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        ScrollView(.horizontal) {
-                            VStack(spacing: 20) {
-                            
-                            }
-                        }
-                    }
+                    //HOME BANNER
+                    HomeBannerView()
+                    
+                    //SUGGEST MOVIE
+                    SuggestHomeView(movies: movies)
+                    
+                    //NETWORK
+                    NetworkHomeView()
+                    
+                    //FEATURED LIST
+                    FeaturedHomeView()
+                    //POPULAR MOVIE
+                    PopularMovieView(movies: movies)
+                    
+                    //POPULAR TV
+                    PopularTVView(movies: movies)
+                    
+                    //TOP ACTOR
+                    ActorHomeView(actors: actors)
+                    
+                    //STUDIO
+                    StudioHomeView()
                 }
             }
         }
     }
 }
 #Preview {
-    HomeView()
+    HomeView(movies: [
+        Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+        Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+        Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6)
+    ], actors: [
+        
+        Actor(id: 1, name: "Jason Statham", photo: "actor1", movies:[
+            Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+            Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+            Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+            Movie(id: 4, title: "Grey's Anatomy", genre: "Drama", poster: "banner4", banner: "poster1", overview: "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.", rate: 2.3),
+            Movie(id: 5, title: "Ballerina", genre: "Action, Drama", poster: "banner8", banner: "poster2", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
+            Movie(id: 6, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
+        ]),
+        Actor(id: 2, name: "Pedro Pascal", photo: "actor2", movies: [
+            Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+            Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+            Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+            Movie(id: 4, title: "Grey's Anatomy", genre: "Drama", poster: "banner4", banner: "poster1", overview: "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.", rate: 2.3),
+            Movie(id: 5, title: "Ballerina", genre: "Action, Drama", poster: "banner8", banner: "poster2", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
+            Movie(id: 6, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
+        ]),
+        Actor(id: 3, name: "Jackie Sandler", photo: "actor3", movies: [
+            Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+            Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+            Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+            Movie(id: 4, title: "Grey's Anatomy", genre: "Drama", poster: "banner4", banner: "poster1", overview: "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.", rate: 2.3),
+            Movie(id: 5, title: "Ballerina", genre: "Action, Drama", poster: "banner8", banner: "poster2", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
+            Movie(id: 6, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
+        ]),
+        Actor(id: 4, name: "Ellen Pompeo", photo: "actor4", movies: [
+            Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+            Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+            Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+            Movie(id: 4, title: "Grey's Anatomy", genre: "Drama", poster: "banner4", banner: "poster1", overview: "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.", rate: 2.3),
+            Movie(id: 5, title: "Ballerina", genre: "Action, Drama", poster: "banner8", banner: "poster2", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
+            Movie(id: 6, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
+        ])
+    ])
 }

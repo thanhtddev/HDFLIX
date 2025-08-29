@@ -1,5 +1,5 @@
 //
-//  NetworkDetailView.swift
+//  ActorView.swift
 //  HDFLIX
 //
 //  Created by Thanh Dao on 29/8/25.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct NetworkDetailView: View {
+struct ActorView: View {
+    let actor: Actor
     
-    let network: Network
     let columns = [
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12),
@@ -17,7 +17,7 @@ struct NetworkDetailView: View {
     ]
     
     var body: some View {
-        ZStack {
+        ZStack{
             BaseView()
             VStack{
                 HStack{
@@ -27,17 +27,19 @@ struct NetworkDetailView: View {
                         .padding(.leading)
                         .frame(width: 24)
                     Spacer()
-                    Text(network.name)
+                    Text(actor.name)
                         .font(.SF_Pro_Bold(20))
                         .foregroundColor(.white)
                     Spacer()
-                    Color.clear
-                        .frame(width: 24)
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.white)
+                        .font(.system(size: 24))
+                        .padding(.trailing)
                 }
                 .frame(height: 50)
                 ScrollView{
                     LazyVGrid(columns: columns, spacing: 16){
-                        ForEach(network.movies){ movie in
+                        ForEach(actor.movies){ movie in
                             VStack(alignment: .leading) {
                                 Image(movie.poster)
                                     .frame(width: 128, height: 180)
@@ -60,12 +62,11 @@ struct NetworkDetailView: View {
                     .padding(.horizontal)
                 }
             }
-            
         }
     }
 }
 #Preview {
-    NetworkDetailView(network: Network(id: 1, logo: "netflix", name: "Netflix", movies: [
+    ActorView(actor: Actor(id: 1, name: "Jason Statham", photo: "actor1", movies:[
         Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", banner: "poster1", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
         Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", banner: "poster2", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
         Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", banner: "poster3", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
