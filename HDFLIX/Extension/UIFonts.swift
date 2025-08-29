@@ -9,10 +9,10 @@ import SwiftUI
 
 extension Font {
     static func SF_Pro_Medium (_ size: CGFloat) -> Font {
-        .custom("SF-Pro-Display-Medium", size: size)
+        .custom("SFProDisplay-Medium", size: size)
     }
     
     static func SF_Pro_Bold (_ size: CGFloat) -> Font {
-        .custom("SF-Pro-Display-Bold", size: size)
+        .custom("SFProDisplay-Bold", size: size)
     }
 }

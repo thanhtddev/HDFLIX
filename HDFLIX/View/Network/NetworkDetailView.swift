@@ -1,0 +1,78 @@
+//
+//  NetworkDetailView.swift
+//  HDFLIX
+//
+//  Created by Thanh Dao on 29/8/25.
+//
+
+import SwiftUI
+
+struct NetworkDetailView: View {
+    
+    let network: Network
+    let columns = [
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
+    ]
+    
+    var body: some View {
+        ZStack {
+            BaseView()
+            VStack{
+                HStack{
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .font(.system(size: 24))
+                        .padding(.leading)
+                    Spacer()
+                    Text(network.name)
+                        .font(.SF_Pro_Bold(20))
+                        .foregroundColor(.white)
+                    Spacer()
+                    Color.clear
+                        .frame(width: 24)
+                }
+                .frame(height: 50)
+                ScrollView{
+                    LazyVGrid(columns: columns, spacing: 16){
+                        ForEach(network.movies){ movie in
+                            VStack(alignment: .leading) {
+                                Image(movie.poster)
+                                    .frame(width: 128, height: 180)
+                                Text(movie.title)
+                                    .font(.SF_Pro_Bold(14))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: 128, alignment: .leading)
+                                    .padding(.leading)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                Text(movie.genre)
+                                    .font(.SF_Pro_Medium(12))
+                                    .foregroundColor(.white)
+                                    .opacity(0.5)
+                                    .frame(maxWidth: 128, alignment: .leading)
+                                    .padding(.leading)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+            
+        }
+    }
+}
+#Preview {
+    NetworkDetailView(network: Network(id: 1, logo: "netflix", name: "Netflix", movies: [
+        Movie(id: 1, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+        Movie(id: 2, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+        Movie(id: 3, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+        Movie(id: 4, title: "Grey's Anatomy", genre: "Drama", poster: "banner4", overview: "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.", rate: 2.3),
+        Movie(id: 5, title: "Ballerina", genre: "Action, Drama", poster: "banner7", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
+        Movie(id: 6, title: "Ice Road", genre:"Action, Thriller", poster: "banner6", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9),
+        Movie(id: 7, title: "SuperMan", genre: "Crime, Drama", poster: "banner7", overview: "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.", rate: 4.5),
+        Movie(id: 8, title: "How to train your dragon", genre: "Horror, MyStery", poster: "banner6", overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.", rate: 6.6),
+        Movie(id: 9, title: "Fianl Destination", genre: "Horror, MyStery", poster: "banner5", overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.", rate: 7.6),
+    ]))
+}

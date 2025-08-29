@@ -14,11 +14,11 @@ struct Actor: Identifiable {
     let movies: [Movie]
 }
 
-struct ActorData {
-    static let actors: [Actor] = [
-        Actor(id: 1, name: "Jason Statham", photo: "actor1", movies: [MovieData.movies[1], MovieData.movies[2]]),
-        Actor(id: 2, name: "Pedro Pascal", photo: "actor1", movies: [MovieData.movies[2], MovieData.movies[3]]),
-        Actor(id: 3, name: "Jackie Sandler", photo: "actor1", movies: [MovieData.movies[4], MovieData.movies[5]]),
-        Actor(id: 4, name: "Ellen Pompeo", photo: "actor1", movies: [MovieData.movies[5], MovieData.movies[6]])
-        ]
-}
+//struct ActorData {
+//    static let actors: [Actor] = [
+//        Actor(id: 1, name: "Jason Statham", photo: "actor1", movies: nil),
+//        Actor(id: 2, name: "Pedro Pascal", photo: "actor1", movies: nil),
+//        Actor(id: 3, name: "Jackie Sandler", photo: "actor1", movies: [MovieData.movies[4], MovieData.movies[5]]),
+//        Actor(id: 4, name: "Ellen Pompeo", photo: "actor1", movies: [MovieData.movies[5], MovieData.movies[6]])
+//        ]
+//}
