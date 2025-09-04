@@ -42,7 +42,7 @@ struct NetworkView: View {
                         .padding(.leading)
                     Spacer()
                 }
-                ScrollView {
+                ScrollView (showsIndicators: false){
                     VStack{
                         ForEach(NetworkData.networks) { network in
                             Button{

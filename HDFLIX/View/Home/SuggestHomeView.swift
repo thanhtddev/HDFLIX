@@ -31,7 +31,7 @@ struct SuggestHomeView: View {
                 
             }
             ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 5){
+                HStack(spacing: 0){
                     ForEach(movies.prefix(5)) { movie in
                         VStack {
                             Image(movie.poster)
@@ -51,7 +51,7 @@ struct SuggestHomeView: View {
                                 .opacity(0.5)
                                 .frame(maxWidth: 128, alignment: .leading)
                         }
-                        .padding(.horizontal, 10)
+                        .padding(.leading, 10)
                     }
                 }
             }

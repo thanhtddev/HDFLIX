@@ -15,7 +15,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             BaseView()
-            ScrollView {
+            ScrollView (showsIndicators: false) {
                 VStack{
                     HStack{
                         Image("logo")
@@ -44,7 +44,7 @@ struct HomeView: View {
                             Image(systemName: "movieclapper")
                                 .foregroundColor(.white)
                             Text("Movies")
-                                .font(.callout)
+                                .font(.SF_Pro_Medium(16))
                                 .foregroundColor(.white)
                         }
                         .background(
@@ -59,7 +59,7 @@ struct HomeView: View {
                             Image(systemName: "tv")
                                 .foregroundColor(.white)
                             Text("TV Shows")
-                                .font(.callout)
+                                .font(.SF_Pro_Medium(16))
                                 .foregroundColor(.white)
                         }
                         .background(
@@ -68,10 +68,26 @@ struct HomeView: View {
                                 .frame(width: 120, height: 36)
                         )
                         .padding()
+                        
+                        Button {
+                            
+                        } label: {
+                            Text("Genres")
+                                .font(.SF_Pro_Medium(16))
+                                .foregroundColor(.white)
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.white)
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.gray.opacity(0.3))
+                                .frame(width: 110, height: 36)
+                        )
+                        .padding()
                         Spacer()
                     }
                     //HOME BANNER
-                    HomeBannerView()
+                    ImagePageView(movies: movies)
                     
                     //SUGGEST MOVIE
                     SuggestHomeView(movies: movies)

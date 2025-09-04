@@ -35,7 +35,7 @@ struct NetworkDetailView: View {
                         .frame(width: 24)
                 }
                 .frame(height: 50)
-                ScrollView{
+                ScrollView (showsIndicators: false){
                     LazyVGrid(columns: columns, spacing: 16){
                         ForEach(network.movies){ movie in
                             VStack(alignment: .leading) {

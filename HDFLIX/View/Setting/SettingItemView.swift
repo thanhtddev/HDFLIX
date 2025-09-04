@@ -27,5 +27,8 @@ struct SettingItemView: View {
     }
 }
 #Preview {
-    SettingItemView(imageSetting: "globe", titleSetting: "Language", iconSetting: "chevron.right")
+    ZStack {
+        BaseView()
+        SettingItemView(imageSetting: "globe", titleSetting: "Language", iconSetting: "chevron.right")
+    }
 }

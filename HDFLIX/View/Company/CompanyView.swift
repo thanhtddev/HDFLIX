@@ -42,7 +42,7 @@ struct CompanyView: View {
                         .padding(.leading)
                     Spacer()
                 }
-                ScrollView{
+                ScrollView (showsIndicators: false){
                     VStack{
                         ForEach(StudioData.studios) { studio in
                             HStack{

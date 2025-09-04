@@ -36,7 +36,7 @@ struct CompanyDetailView: View {
                         .frame(width: 24)
                 }
                 .frame(height: 50)
-                ScrollView{
+                ScrollView (showsIndicators: false){
                     LazyVGrid(columns: columns, spacing: 16){
                         ForEach(studio.movies){ movie in
                             VStack(alignment: .leading) {

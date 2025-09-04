@@ -54,12 +54,12 @@ struct MainView: View {
                 }
             ReelView()
                 .tabItem {
-                    Image(systemName: "film")
+                    Image(systemName: "video")
                     Text("Reel")
                 }
-            ListView()
+            ListView(movies: [])
                 .tabItem {
-                    Image(systemName: "list.bullet")
+                    Image(systemName: "list.and.film")
                     Text("My List")
                 }
             SettingView()
@@ -69,6 +69,7 @@ struct MainView: View {
                 }
         }
         .accentColor(.white)
+        .background(Color.mediumblack)
     }
 }
 #Preview {

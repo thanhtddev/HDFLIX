@@ -23,7 +23,7 @@ struct FeaturedHomeView: View {
                     .foregroundColor(.white)
                 Spacer()
             }
-            ScrollView(.horizontal){
+            ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(featuredImage, id: \.self) { image in
                             Image(image)
@@ -31,7 +31,7 @@ struct FeaturedHomeView: View {
                                 .scaledToFill()
                                 .frame(width: 223, height: 238)
                                 .cornerRadius(20)
-                                .padding(.leading ,10)
+                                .padding(.leading , 10)
                     }
                 }
             }
