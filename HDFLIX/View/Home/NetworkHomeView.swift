@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NetworkHomeView: View {
+    
+    @State private var navigateToNetwork = false
+    
     var body: some View {
         VStack {
             Text("Explore By Network")
@@ -16,7 +19,7 @@ struct NetworkHomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             Button {
-                
+                navigateToNetwork = true
             } label: {
                 VStack{
                     Spacer()
@@ -60,7 +63,9 @@ struct NetworkHomeView: View {
                     .cornerRadius(10)
                 )
             }
-            
+            .navigationDestination(isPresented: $navigateToNetwork) {
+                NetworkView()
+            }
         }
     }
 }

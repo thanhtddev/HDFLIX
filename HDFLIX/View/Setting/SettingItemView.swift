@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct SettingItemView: View {
+    
     let imageSetting: String
     let titleSetting: String
     let iconSetting: String
+    
     var body: some View {
         HStack {
             Image(systemName: imageSetting)
+                .font(.system(size: 20))
                 .padding()
                 .foregroundColor(.white)
-                
+            
             Text(titleSetting)
                 .foregroundColor(.white)
             Spacer()

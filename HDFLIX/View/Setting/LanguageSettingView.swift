@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LanguageSettingView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
     @State private var selectedLanguage: String = "English"
     let languages: [Language]
     
@@ -17,7 +19,7 @@ struct LanguageSettingView: View {
             VStack {
                 HStack {
                     Button {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 25))
@@ -64,5 +66,6 @@ struct LanguageSettingView: View {
                 Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }

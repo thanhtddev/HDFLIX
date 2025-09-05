@@ -13,7 +13,6 @@ struct ImagePageView : View {
     
     var body: some View {
         VStack (spacing: 0){
-            
             TabView(selection: $currentPage) {
                 ForEach(Array(movies.prefix(5)).indices, id: \.self) { index in
                     ZStack {
@@ -114,4 +113,3 @@ struct ImagePageView : View {
         .frame(height: 460)
     }
 }
-

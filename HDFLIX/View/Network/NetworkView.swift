@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NetworkView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.lightred, .darkred], startPoint: .topLeading, endPoint: .trailing).edgesIgnoringSafeArea(.all)
@@ -23,7 +26,7 @@ struct NetworkView: View {
                         .padding()
                     Spacer()
                     Button{
-                        
+                        presentationMode.wrappedValue.dismiss()
                     }label: {
                         ZStack{
                             Circle()
@@ -34,6 +37,7 @@ struct NetworkView: View {
                                 .foregroundColor(.white)
                         }
                     }
+                    .padding(.trailing)
                 }
                 HStack {
                     Text("Streamers")
@@ -45,9 +49,7 @@ struct NetworkView: View {
                 ScrollView (showsIndicators: false){
                     VStack{
                         ForEach(NetworkData.networks) { network in
-                            Button{
-                                //action
-                            } label: {
+                            NavigationLink(destination: NetworkDetailView(network: network)) {
                                 HStack{
                                     Image(network.logo)
                                         .resizable()
@@ -68,6 +70,7 @@ struct NetworkView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 #Preview {

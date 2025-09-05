@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MainView()
+        NavigationStack {
+            MainView(movies: movieData.movies, actors: ActorData.actors, languages: LanguageData.languages)
+        }        
     }
 }
 

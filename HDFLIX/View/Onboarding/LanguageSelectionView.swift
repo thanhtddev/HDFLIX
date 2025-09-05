@@ -51,25 +51,6 @@ struct LanguageSelectionView: View {
                     }
                 }
                 Spacer()
-                HStack{
-                    Color.clear
-                        .frame(width: 43)
-                        .padding(.leading)
-                    Spacer()
-                    PageIndicator(allPage: 3, currentPage: currentPage)
-                    Spacer()
-                    Button{
-                        
-                    }label: {
-                        Image(systemName: "arrow.right")
-                            .foregroundColor(.white)
-                            .frame(width: 43, height: 43)
-                            .background(Color.mediumred)
-                            .clipShape(Circle())
-                            .padding(.trailing)
-                    }
-                }
-                .frame(height: 40)
             }
         }
     }

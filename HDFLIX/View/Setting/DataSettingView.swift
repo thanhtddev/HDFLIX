@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DataSettingView: View {
+    
     @State private var companyEnabled = false
     @State private var networkEnabled = false
     @State private var actorEnabled = false
     @State private var showDataEnabled = false
     @State private var featuredEnabled = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -20,7 +22,7 @@ struct DataSettingView: View {
             VStack {
                 HStack {
                     Button {
-                        
+                        dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 25))
@@ -62,6 +64,7 @@ struct DataSettingView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

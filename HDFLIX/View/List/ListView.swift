@@ -20,7 +20,11 @@ struct ListView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 17)
-                
+//                ScrollView {
+//                    if viewModel.isFavorite {
+//                        ListFavoriteView(viewModel: viewModel.favorites)
+//                    }
+//                }
             }
         }
     }
@@ -40,8 +44,4 @@ struct ListView: View {
         Movie(id: 11, title: "Ballerina", genre: "Action, Drama", poster: "banner8", banner: "poster2", overview: "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.", rate: 5.6),
         Movie(id: 12, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
     ])
-}
-#Preview ("Empty List") {
-    ListView(movies: [])
-    
 }

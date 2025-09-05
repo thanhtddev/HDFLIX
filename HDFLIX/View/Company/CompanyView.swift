@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CompanyView: View {
+    let studios : [Studio]
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack{
             LinearGradient(colors: [.lightpink, .darkpink],
@@ -21,8 +23,10 @@ struct CompanyView: View {
                         .foregroundColor(.white)
                         .padding(.leading)
                     Spacer()
+                    
+                    // BACK
                     Button{
-                        
+                        presentationMode.wrappedValue.dismiss()
                     }label: {
                         ZStack{
                             Circle()
@@ -45,27 +49,27 @@ struct CompanyView: View {
                 ScrollView (showsIndicators: false){
                     VStack{
                         ForEach(StudioData.studios) { studio in
-                            HStack{
-                                Image(studio.logoImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 60, height: 60)
-                                    .padding()
-                                Text(studio.name)
-                                    .font(.SF_Pro_Medium(16))
-                                    .foregroundStyle(.white)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.white)
-                                    .padding()
+                            NavigationLink(destination: CompanyDetailView(studio: studio)) {
+                                HStack{
+                                    Image(studio.logoImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 60)
+                                        .padding()
+                                    Text(studio.name)
+                                        .font(.SF_Pro_Medium(16))
+                                        .foregroundStyle(.white)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
-}
-#Preview {
-    CompanyView()
 }

@@ -30,14 +30,21 @@ class MovieViewModel: ObservableObject {
     }
 }
 class FavoriteViewModel: ObservableObject {
-    @Published var favorites: Set<Int> = []
+    @Published var favoriteMovies: Set<Int> = []
     
-    func addToFavorites(_ movie: Movie) -> Bool {
-        favorites.contains(movie.id)
-        
+    func toggleFavorite(for movie: Movie) {
+        if favoriteMovies.contains(movie.id) {
+            favoriteMovies.remove(movie.id)
+        } else {
+            favoriteMovies.insert(movie.id)
+        }
     }
     
-    func removeFromFavorites(_ movie: Movie) {
-        favorites.remove(movie.id)
+    func isFavorite(_ movie: Movie) -> Bool {
+        favoriteMovies.contains(movie.id)
+    }
+    
+    var favorites: [Movie] {
+        movieData.movies.filter { favoriteMovies.contains($0.id) }
     }
 }

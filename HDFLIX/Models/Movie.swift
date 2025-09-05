@@ -1,10 +1,3 @@
-//
-//  Untitled.swift
-//  HDFLIX
-//
-//  Created by Thanh Dao on 26/8/25.
-//
-
 import SwiftUI
 
 struct Movie: Identifiable {
@@ -33,4 +26,3 @@ struct movieData {
         Movie(id: 12, title: "Ice Road", genre:"Action, Thriller", poster: "banner9", banner: "poster3", overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.", rate: 4.9)
     ]
 }
-

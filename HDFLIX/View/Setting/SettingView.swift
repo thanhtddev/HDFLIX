@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct SettingView: View {
+    
+    @State private var showLanguage = false
+    @State private var showData = false
+    let languages : [Language]
+    
     var body: some View {
         ZStack {
             Color.mediumblack.edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack {
                     Text("Setting")
-                        .font(.custom("SF-Pro-Display-Medium", size: 30))
+                        .font(.SF_Pro_Bold(30))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                         .padding()
@@ -26,12 +31,12 @@ struct SettingView: View {
                         }
                         VStack {
                             Text("Community")
-                                .font(.custom("SF-Pro-Display-Medium", size: 20))
+                                .font(.SF_Pro_Bold(20))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading)
                             Text("Join our channel for updates & more")
-                                .font(.custom("SF-Pro-Display-Medium", size: 15))
+                                .font(.SF_Pro_Medium(15))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding()
@@ -44,7 +49,7 @@ struct SettingView: View {
                                     HStack{
                                         Image("discord")
                                         Text("Discord")
-                                            .font(.custom("SF-Pro-Display-Medium", size: 15))
+                                            .font(.SF_Pro_Medium(15))
                                             .foregroundColor(.white)
                                     }
                                 }
@@ -56,7 +61,7 @@ struct SettingView: View {
                                     HStack{
                                         Image("tele")
                                         Text("Telegram")
-                                            .font(.custom("SF-Pro-Display-Medium", size: 15))
+                                            .font(.SF_Pro_Medium(15))
                                             .foregroundColor(.white)
                                     }
                                 }
@@ -68,7 +73,7 @@ struct SettingView: View {
                                     HStack{
                                         Image("channel")
                                         Text("Channel")
-                                            .font(.custom("SF-Pro-Display-Medium", size: 15))
+                                            .font(.SF_Pro_Medium(15))
                                             .foregroundColor(.white)
                                     }
                                 }
@@ -82,16 +87,32 @@ struct SettingView: View {
                         Image("xcheck")
                             .padding()
                         Text("Trakt Account")
+                            .font(.SF_Pro_Medium(18))
                             .foregroundColor(.white)
                         Spacer()
                         Button(action: {}) {
                             Text("Connect")
+                                .font(.SF_Pro_Medium(18))
                                 .foregroundColor(.red)
                         }
                         .padding()
                     }
-                    SettingItemView(imageSetting: "globe", titleSetting: "Language", iconSetting: "chevron.right")
-                    SettingItemView(imageSetting: "gear", titleSetting: "Show/Hide Data", iconSetting: "chevron.right")
+                    Button {
+                        showLanguage = true
+                    } label: {
+                        SettingItemView(imageSetting: "globe", titleSetting: "Language", iconSetting: "chevron.right")
+                    }
+                    .navigationDestination(isPresented: $showLanguage) {
+                        LanguageSettingView(languages: languages)
+                    }
+                    Button {
+                        showData = true
+                    } label: {
+                        SettingItemView(imageSetting: "gear", titleSetting: "Show/Hide Data", iconSetting: "chevron.right")
+                    }
+                    .navigationDestination(isPresented: $showData) {
+                        DataSettingView()
+                    }
                     SettingItemView(imageSetting: "book.pages", titleSetting: "Terms & Policy", iconSetting: "chevron.right")
                     SettingItemView(imageSetting: "questionmark.message", titleSetting: "FAQs", iconSetting: "chevron.right")
                     SettingItemView(imageSetting: "hand.thumbsup", titleSetting: "Rate App", iconSetting: "arrow.up.forward")
@@ -102,5 +123,7 @@ struct SettingView: View {
     }
 }
 #Preview {
-    SettingView()
+    NavigationStack {
+        SettingView(languages: LanguageData.languages)
+    }
 }

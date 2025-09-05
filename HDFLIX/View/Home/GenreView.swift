@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct GenresView: View {
+    
     let genres: [Genre]
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack {
             Color.mediumblack.edgesIgnoringSafeArea(.all)
                 .opacity(0.7)
             VStack {
-                ScrollView {
+                ScrollView(showsIndicators: false){
                     ForEach(genres) { genre in
                         Text(genre.name)
                             .font(.SF_Pro_Medium(18))
@@ -24,7 +27,7 @@ struct GenresView: View {
                 }
                 .padding(.top)
                 Button {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.system(size: 44))
@@ -32,18 +35,10 @@ struct GenresView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    GenresView(genres: [
-        Genre(id: 1, name: "Action"),
-        Genre(id: 2, name: "Action"),
-        Genre(id: 3, name: "Action"),
-        Genre(id: 4, name: "Action"),
-        Genre(id: 5, name: "Action"),
-        Genre(id: 6, name: "Action"),
-        Genre(id: 7, name: "Action"),
-        Genre(id: 8, name: "Action")
-    ])
+    GenresView(genres: dataGenre.genres)
 }

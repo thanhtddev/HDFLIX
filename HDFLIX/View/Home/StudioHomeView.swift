@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StudioHomeView: View {
+    @State private var navigateToStudio = false
+    let studios : [Studio]
     var body: some View {
         VStack {
             Text("Explore By Studios")
@@ -16,7 +18,7 @@ struct StudioHomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             Button {
-                
+                navigateToStudio = true
             } label: {
                 VStack{
                     Spacer()
@@ -60,13 +62,15 @@ struct StudioHomeView: View {
                     .cornerRadius(10)
                 )
             }
-            
-        }
+            .navigationDestination(isPresented: $navigateToStudio){
+                CompanyView(studios: studios)
+            }
+        }  
     }
 }
 #Preview {
     ZStack {
         BaseView()
-        StudioHomeView()
+        StudioHomeView(studios: StudioData.studios)
     }
 }
