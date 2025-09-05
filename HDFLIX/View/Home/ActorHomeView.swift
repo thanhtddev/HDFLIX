@@ -10,6 +10,7 @@ import SwiftUI
 struct ActorHomeView: View {
     
     @State private var navigateToActor = false
+    
     let actors: [Actor]
     let columns = [
         GridItem(.flexible(), spacing: 12),

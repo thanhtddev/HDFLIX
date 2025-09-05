@@ -30,7 +30,16 @@ class MovieViewModel: ObservableObject {
     }
 }
 class FavoriteViewModel: ObservableObject {
-    @Published var favoriteMovies: Set<Int> = []
+    @Published private(set) var favoriteMovies: Set<Int> = []{
+        didSet {
+            saveFavorites()
+        }
+    }
+    private let key = "favoriteMovies"
+    
+    init () {
+        loadFavorites()
+    }
     
     func toggleFavorite(for movie: Movie) {
         if favoriteMovies.contains(movie.id) {
@@ -46,5 +55,15 @@ class FavoriteViewModel: ObservableObject {
     
     var favorites: [Movie] {
         movieData.movies.filter { favoriteMovies.contains($0.id) }
+    }
+    
+    private func saveFavorites() {
+        UserDefaults.standard.set(Array(favoriteMovies), forKey: key)
+    }
+    
+    private func loadFavorites() {
+        if let savedFavorites = UserDefaults.standard.array(forKey: key) as? [Int] {
+            favoriteMovies = Set(savedFavorites)
+        }
     }
 }

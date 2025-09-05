@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct ListFavoriteView: View {
-    @ObservedObject var viewModel: FavoriteViewModel
+    
+    @ObservedObject var favoriteVM: FavoriteViewModel
+    
     var body: some View {
-        ForEach(viewModel.favorites) { movie in
+        ForEach(favoriteVM.favorites){ movie in
             HStack {
-                Image(movie.poster)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 90)
-                    .cornerRadius(8)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(movie.title)
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text(movie.genre)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                HStack {
+                    Image(movie.poster)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 133, height: 92)
+                        .cornerRadius(10)
+                        .clipped()
+                        .padding(.leading, 16)
+                    VStack {
+                        Text(movie.title)
+                            .font(.SF_Pro_Bold(14))
+                            .foregroundStyle(.white)
+                            .frame(width: 180, alignment: .leading)
+                            .padding(.bottom, 4)
+                        Text(movie.genre)
+                            .font(.SF_Pro_Medium(12))
+                            .foregroundColor(.white.opacity(0.6))
+                            .frame(width: 180, alignment: .leading)
+                        
+                    }
+                    Spacer()
                 }
-                
-                Spacer()
+                .frame(width: 406, height: 92)
+                .padding(.horizontal, 18)
             }
-            .padding(.horizontal)
         }
     }
 }
@@ -37,6 +46,6 @@ struct ListFavoriteView: View {
 #Preview {
     ZStack {
         BaseView()
-        ListFavoriteView(viewModel: FavoriteViewModel())
+        ListFavoriteView(favoriteVM: FavoriteViewModel())
     }
 }

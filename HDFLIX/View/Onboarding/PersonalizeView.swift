@@ -11,7 +11,7 @@ struct PersonalizeView: View {
     @State var isShowSheet = true
     var body: some View {
         ZStack {
-            Color.mediumblack.edgesIgnoringSafeArea(.all)
+            //Color.mediumblack.edgesIgnoringSafeArea(.all)
             VStack {
                 Image("logo")
                     .resizable()

@@ -10,6 +10,7 @@ struct ImagePageView : View {
     @State private var currentPage = 0
     let movies: [Movie]
     @State private var likedMovies: Set<Int> = []
+    //@ObservedObject var favoriteVM: FavoriteViewModel
     
     var body: some View {
         VStack (spacing: 0){

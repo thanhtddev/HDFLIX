@@ -13,7 +13,9 @@ struct MovieDetailView: View {
     @State private var showSheet: Bool = false
     @State private var isBookmarked = false
     @State private var isPLayed = false
+    @Environment(\.dismiss) var dismiss
     
+    @ObservedObject var favoriteVM: FavoriteViewModel
     var body: some View {
         ZStack {
             BaseView()
@@ -54,7 +56,7 @@ struct MovieDetailView: View {
                                         .padding(.leading, 20)
                                         Spacer()
                                         Button {
-                                            
+                                            dismiss()
                                         } label: {
                                             ZStack{
                                                 Circle()
@@ -95,6 +97,7 @@ struct MovieDetailView: View {
                             Spacer()
                             VStack {
                                 Button {
+                                    favoriteVM.toggleFavorite(for: movie)
                                     isBookmarked.toggle()
                                 } label: {
                                     ZStack{
@@ -152,9 +155,10 @@ struct MovieDetailView: View {
             .background(Color.mediumblack.opacity(0.8))
             .frame(width: 370, height: 600)
         } // ZStack
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    MovieDetailView(movie: movieData.movies[2])
+    MovieDetailView(movie: movieData.movies[2], favoriteVM: FavoriteViewModel())
 }

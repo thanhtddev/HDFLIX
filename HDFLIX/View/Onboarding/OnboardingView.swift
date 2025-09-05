@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardingScreen: View {
     
+    @State private var naviagteToPage = false
+    
     var body: some View {
         ZStack{
             Color.mediumblack.edgesIgnoringSafeArea(.all)
@@ -28,9 +30,7 @@ struct OnboardingScreen: View {
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
-                Button{
-                    
-                }label: {
+                NavigationLink(destination: PageIndicator()) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 387, height: 46)
@@ -39,7 +39,6 @@ struct OnboardingScreen: View {
                             .font(.SF_Pro_Bold(16))
                             .foregroundColor(.white)
                     }
-                    
                 }
                 .padding()
             }
@@ -47,5 +46,7 @@ struct OnboardingScreen: View {
     }
 }
 #Preview {
-    OnboardingScreen()
+    NavigationStack {
+        OnboardingScreen()
+    }
 }

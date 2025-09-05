@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @State var text: String = ""
+    @FocusState var isFocused: Bool
+    let movies: [Movie]
+    let results: [MultiSearchResult]
+    
     var body: some View {
         ZStack {
             Color.mediumblack.edgesIgnoringSafeArea(.all)
             VStack {
-                SearchBarView()
+                SearchBarView(text: $text, isFocused: _isFocused)
+                if text.isEmpty {
+                    SuggestSearchView(movies: movies)
+                } else {
+                    SearchResultGridView(results: results)
+                }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    SearchView()
 }

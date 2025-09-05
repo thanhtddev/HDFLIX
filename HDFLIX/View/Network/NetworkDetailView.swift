@@ -46,6 +46,8 @@ struct NetworkDetailView: View {
                         ForEach(network.movies){ movie in
                             VStack(alignment: .leading) {
                                 Image(movie.poster)
+                                    .resizable()
+                                    .scaledToFit()
                                     .frame(width: 128, height: 180)
                                 Text(movie.title)
                                     .font(.SF_Pro_Bold(14))

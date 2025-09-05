@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isFirstLaunch") var isFirstLaunch: Bool = true
+    
     var body: some View {
         NavigationStack {
-            MainView(movies: movieData.movies, actors: ActorData.actors, languages: LanguageData.languages)
+            if isFirstLaunch {
+                OnboardingScreen()
+            } else {
+                MainView(movies: movieData.movies, actors: ActorData.actors, languages: LanguageData.languages)
+            }
         }        
     }
 }

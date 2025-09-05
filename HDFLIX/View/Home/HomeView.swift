@@ -27,9 +27,7 @@ struct HomeView: View {
                             .frame(width: 95, height: 30)
                             .padding()
                         Spacer()
-                        Button{
-//                            showPopover = true
-                        } label: {
+                        NavigationLink(destination: SearchView(movies: movies, results: [])) {
                             Image(systemName: "magnifyingglass")
                                 .resizable()
                                 .scaledToFit()

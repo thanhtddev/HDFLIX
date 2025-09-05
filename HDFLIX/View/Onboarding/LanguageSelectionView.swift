@@ -12,7 +12,7 @@ struct LanguageSelectionView: View {
     @State private var currentPage = 0
     var body: some View {
         ZStack{
-            BaseView()
+            //BaseView()
             VStack{
                 Image("logo")
                     .resizable()

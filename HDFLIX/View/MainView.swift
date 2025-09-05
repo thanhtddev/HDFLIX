@@ -12,7 +12,7 @@ struct MainView: View {
     let movies: [Movie]
     let actors: [Actor]
     let languages: [Language]
-    
+        
     var body: some View {
         TabView {
             HomeView(movies: movies, actors: actors, studios: StudioData.studios, genres: dataGenre.genres)
@@ -38,6 +38,7 @@ struct MainView: View {
         }
         .accentColor(.white)
         .background(Color.mediumblack)
+        .navigationBarBackButtonHidden(true)
     }
 }
 #Preview {
